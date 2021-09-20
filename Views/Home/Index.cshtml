@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!--0. Change Title for easy access-->
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="~/CSS/style.css" />
+
+</head>
+<body>
+    <!--1.  Create Employee Data header-->
+    <h1>Employee Data</h1>
+    <!--2.  Create a Navigation-->
+    <nav>
+        <!--3.  Create an Action Link-->
+        @*This is how to comment using razer tag*@
+        @Html.ActionLink("Employees", "Index", "Employee")
+        <!--If someone click on employee link, it'll take me from Employees(Name on Link) to Index(Action Method) from Employee(Controller)-->
+        
+
+        <!--4.  Go to Startup.cs-->
+    </nav>
+</body>
+</html>

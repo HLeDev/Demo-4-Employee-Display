@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!--15.  Change Title-->
+    <title>Employee Page</title>
+    <link rel="stylesheet" type="text/css" href="~/CSS/style.css" />
+
+</head>
+<body>
+    <!--16.  Create a header-->
+    <h1>Employee Names</h1>
+    <!--17.  Create a paragraph-->
+    <p>Please select and employee to view details</p>
+
+    <!--18.  Use C# to select an employee to get details using foreach-->
+    @foreach(string currentName in ViewBag.Employeenames)
+    { 
+        <!--19.  Create a div-->
+        <div>
+            <!--20.  Create an action link for each employee-->
+            <!--21.  Select from currentName (Currently has 5 Employees) > If clicked on employee, it will go to "Details" > -->
+            @Html.ActionLink(currentName, "Details", new { empname = currentName })
+            <!--22.  Create a Details page in Employee folder-->
+            <!--23.  Create a method for result of employee in EmployeeController-->
+        </div>
+    }
+
+
+</body>
+</html>
