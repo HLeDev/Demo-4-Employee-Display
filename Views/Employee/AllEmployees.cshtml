@@ -1,0 +1,88 @@
+﻿<!--110.  Add LIST of employees model-->
+@model IEnumerable<Demo4EmpDisplay.Models.Employee>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AllEmployees</title>
+    <!--120.  Add CSS inline style-->
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
+</head>
+<body>
+    <!--111.  Add a Table Tag-->
+    <table>
+        <thead><!--112.  Heading of table-->
+            <tr>
+                <!--Row-->
+                <th>Employee ID</th><!--113.  First Column-->
+                <th>Name</th><!--114.  Second Colum-->
+                <th>Email</th><!--115.  Third Column-->
+                <th>Department</th><!--115a.  (Update after adding CSS) Fourth Column-->
+                <th>Update</th>
+                <th>Delete</th>
+                <!--144.  Go to EmployeeController-->
+            </tr>
+        </thead>
+
+        <!--116.  Create a foreach loop to iterate each employee in Model(obj by default attached to view)-->
+        @foreach(var emp in Model)
+            {
+                <!--117.  Create a row for each employee-->
+                <tr><!--117a.  Row-->
+                    <!--118.  Create Column-->
+                    <td><!--118a.  Column-->
+                        @emp.Eid
+                    </td>
+                    <td>
+                        @emp.EName
+                    </td>
+                    <td>
+                        @emp.Email
+                    </td>
+                    <td>
+                        @emp.Department
+                    </td>
+
+                    <!--142.  Create a tag helper for update and delete-->
+                    <td><a asp-action="Update" asp-controller="Employee" asp-route-id="@emp.Eid">Update</a></td>
+                    <td><a asp-action="Delete" asp-controller="Employee" asp-route-id="@emp.Eid">Delete</a></td>
+                    <!--143.  Add 5 and 6 Column for Update and Delete-->
+                </tr>
+            }
+    </table>
+    <!--117.  Go to Home Index Page-->
+
+    <!--121.  Add a taghelper to go back to home page-->
+    <a asp-action="Index" asp-controller="Home">Back to Home</a><br />
+
+    <!--122.  Go back to Employee Controller to create add method for action-->
+
+    <!--134.  Create an actionlink to go to create new employee page-->
+    <a asp-action="Create" asp-controller="Employee">Create</a>    
+    <!--135.  Go to Employee Controller to create a Post for submitting Employee-->
+
+</body>
+</html>

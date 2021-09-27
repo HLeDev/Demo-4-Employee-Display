@@ -1,4 +1,4 @@
-﻿
+﻿@inject Demo4EmpDisplay.Services.IFormatNumber formatNumber
 @{
     Layout = null;
 }
@@ -20,11 +20,77 @@
     <nav>
         <!--3.  Create an Action Link-->
         @*This is how to comment using razer tag*@
-        @Html.ActionLink("Employees", "Index", "Employee")
-        <!--If someone click on employee link, it'll take me from Employees(Name on Link) to Index(Action Method) from Employee(Controller)-->
+        <span>
+            @Html.ActionLink("Employees", "Index", "Employee")
+            <!--If someone click on employee link, it'll take me from Employees(Name on Link) to Index(Action Method) from Employee(Controller)-->
+            <!--4.  Go to Startup.cs-->
+        </span>
         
 
-        <!--4.  Go to Startup.cs-->
+
+        <!--43.  Create link to go to about page-->
+        <span>
+            @Html.ActionLink("About Us", "About", "Home")
+        </span>
+        <!--44.  Go to Home Controller-->
+        <!--52.  Create Action -->
+        <span>
+            <a asp-action="Contact" asp-controller="Home">Contact Us</a>
+        </span>
+        <!--53.  Go to Startup-->
+
+
+        <!--118.  Add a helper tag to navigate to all employees page-->
+        <span>
+            <a asp-action="AllEmployees" asp-controller="Employee">Display Employees</a>
+        </span>
+        <!--119.  Go back to AllEmployees Page-->
+
+
     </nav>
+
+    <!--40.  Get number of employees-->
+    <p>There are @formatNumber.GetFormattedNumber(3232232) employees in the company!</p>
+    <!--41.  Write C# code in Razor syntax -->
+
+    @for (int i = 0; i < 5; i++)
+    {
+        <span>
+            @i <br />
+        </span>
+    }
+
+    @{
+        int k = 5; int j = 6;
+        if (k < 5)
+        {
+
+        }
+    }
+    <span>
+        Price including sales tax : @ViewBag.Price*1.2
+    </span>
+
+    <span>
+        Price including sales tax : @(ViewBag.Price*1.2)
+    </span>
+    <!--42.  Add another Action Link-->
+
+
+
+    <!--61.  Call Partial View Page-->
+    @await Html.PartialAsync("_FirstPartial") 
+    <!--62.  Go to First Partial and write a Footer then add it to Employee Index Page-->
+
+
+
+
+    
+
+
+
+
+
+
 </body>
 </html>

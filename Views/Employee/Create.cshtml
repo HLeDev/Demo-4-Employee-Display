@@ -1,0 +1,46 @@
+﻿<!--127.  Add Employee Model Class for creation of employee-->
+@model Demo4EmpDisplay.Models.Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <!--128.  Add a Form controller-->
+    <form asp-action="Create" method="post">
+        <!--129.  Create div tag for properties-->
+        <div>
+            <label asp-for="EName">Employee Name</label>
+            <input asp-for="EName" />
+        </div>
+        <div>
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" />
+        </div>
+        <div>
+            <label asp-for="Department">Department</label>
+            <!--130.  Department has fixed value, so need dropdown-->
+            <select asp-for="Department" asp-items="Html.GetEnumSelectList<Demo4EmpDisplay.Models.Dept>()">
+                <option value="">Please Select Dept</option>
+            </select>
+        </div>
+
+        <!--131.  Use taghelper for validation-->
+        <div asp-validation-summary="All"></div>
+
+        <!--132.  Add Button for submit-->
+        <div>
+            <button type="submit">Create Employee</button>
+        </div>
+
+        <!--133.  Go to AllEmployees Page to direct to Create Employee-->
+    </form>
+</body>
+</html>

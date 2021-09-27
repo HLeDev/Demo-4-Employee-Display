@@ -18,5 +18,16 @@
     <p>
         Employee Name is : @ViewBag.selectedemployee
     </p>
+    <!--29.  Go to startup-->
+
+    <!--69.  Add Images now-->
+    <img src="@Url.Action("GetImage", new {empname = ViewBag.selectedemployee})" width="500"  alt="@ViewBag.selectedemployee" />
+    <!--***NOTES***  Make sure the function name is correct, and string name from parameter is correct-->
+
+    <!--70.  Create a tag to go back to employee page-->
+    <a asp-action="Index">Back to Employees</a> <br /><br />
+    <a asp-action="Index" asp-controller="Home">Back to Home Page</a>
+    <!--71.  Go to Startup-->
+
 </body>
 </html>

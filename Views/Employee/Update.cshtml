@@ -1,0 +1,43 @@
+﻿@model Demo4EmpDisplay.Models.Employee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update</title>
+</head>
+<body>
+    <form asp-action="Update" asp-controller="Employee" method="post">
+        <!--148.  Create div tag for properties-->
+        <div>
+            <label asp-for="EName">Employee Name</label>
+            <input asp-for="EName" />
+        </div>
+        <div>
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" />
+        </div>
+        <div>
+            <label asp-for="Department">Department</label>
+            <!--149.  Department has fixed value, so need dropdown-->
+            <select asp-for="Department" asp-items="Html.GetEnumSelectList<Demo4EmpDisplay.Models.Dept>()">
+                <option value="">Please Select Dept</option>
+            </select>
+        </div>
+
+        <!--150.  Use taghelper for validation-->
+        <div asp-validation-summary="All"></div>
+
+        <!--151.  Add Button for submit-->
+        <div>
+            <button type="submit">Update Employee</button>
+        </div>
+
+        <!--152.  Go to Employee Controller to direct to Update Employee-->
+    </form>
+</body>
+</html>
