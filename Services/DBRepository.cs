@@ -26,6 +26,29 @@ namespace Demo4EmpDisplay.Services
             //176.  Create Logic for Adding Employee
             //177.  First, we want EID max +1, autoincrement
             e.Eid = empContext.Employees.Max(e => e.Eid) + 1;
+
+
+            //200.  Add an if statement to compare department name and id
+            if(e.Department.ToString()=="HR")
+            {
+                e.DeptId = 1;
+            }
+            if (e.Department.ToString() == "IT")
+            {
+                e.DeptId = 2;
+            }
+            if (e.Department.ToString() == "Finance")
+            {
+                e.DeptId = 3;
+            }
+            if (e.Department.ToString() == "QA")
+            {
+                e.DeptId = 4;
+            }
+            //201.  Do the same thing for Update
+
+
+
             empContext.Employees.Add(e);
             empContext.SaveChanges();
             return e;
@@ -62,10 +85,28 @@ namespace Demo4EmpDisplay.Services
             Employee emp = empContext.Employees.FirstOrDefault(e => e.Eid == EmpUpdate.Eid);
             if (emp != null)
             {
-                //If it is not null, update changes from new record to old record
+                //**Note** If it is not null, update changes from new record to old record
                 emp.EName = EmpUpdate.EName;
                 emp.Email = EmpUpdate.Email;
                 emp.Department = EmpUpdate.Department;
+
+                //202.  Add an if statement to compare department name and id
+                if (emp.Department.ToString() == "HR")
+                {
+                    emp.DeptId = 1;
+                }
+                if (emp.Department.ToString() == "IT")
+                {
+                    emp.DeptId = 2;
+                }
+                if (emp.Department.ToString() == "Finance")
+                {
+                    emp.DeptId = 3;
+                }
+                if (emp.Department.ToString() == "QA")
+                {
+                    emp.DeptId = 4;
+                }
             }
             empContext.SaveChanges();
             return emp;

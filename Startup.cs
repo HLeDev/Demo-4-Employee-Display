@@ -77,6 +77,10 @@ namespace Demo4EmpDisplay
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, EmployeeContext employeeContext) //170.  Add the method here
         {
+            //198.  activate the ensuredeleted method 
+            employeeContext.Database.EnsureDeleted();
+            //199.  Go to DBRepository to add departmentclass
+
             //171.  Ensure the db is created
             employeeContext.Database.EnsureCreated();
             //172.  Add a db repository class in Services to use CRUD
